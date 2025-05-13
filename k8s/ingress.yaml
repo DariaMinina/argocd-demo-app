@@ -3,10 +3,11 @@ kind: Ingress
 metadata:
   name: demo-app-ingress
   annotations:
-    ingress.vk.cloud/load-balancer-type: "standard"
+    cert-manager.io/issuer: gitlab-issuer
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: demo-app.89-208-86-40.com  # Замените на ваш домен
+    - host: demo-app.89-208-86-40.sslip.io  # Замените на ваш домен
       http:
         paths:
           - path: /
